@@ -3,9 +3,20 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	>
 	<ui:style>
+	.createTestModelStatusPanel {
+	border: 1px solid #ddd;
+	width: 300px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 0;
+	}
 	</ui:style>
 	<g:HTMLPanel ui:field="mainPanel" styleName="home-page">
-		<h3>Home Page</h3>
+		<div><strong>Home Page</strong></div>
 		<g:Button ui:field="buttonCategory" text="Category"></g:Button>
+		<g:Button ui:field="buttonCreateTestModel" text="Create Test Model"></g:Button>
+		<g:HTML ui:field="createTestModelStatusPanel" styleName="{style.createTestModelStatusPanel}"></g:HTML>
 	</g:HTMLPanel>
 </ui:UiBinder> 

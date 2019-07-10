@@ -11,8 +11,6 @@ import com.spring.gwt.client.activities.home.HomeViewImpl;
 public class ClientFactoryImpl implements ClientFactory {
 	private SimpleEventBus eventBus;
 	private PlaceController placeController;
-	private HomeView homeView = new HomeViewImpl();
-	private CategoryView categoryView = new CategoryViewImpl();
 	
 	public ClientFactoryImpl() {
 		eventBus = new SimpleEventBus();
@@ -31,11 +29,11 @@ public class ClientFactoryImpl implements ClientFactory {
 
 	@Override
 	public HomeView getHomeView() {
-		return homeView;
+		return new HomeViewImpl();
 	}
 
 	@Override
 	public CategoryView getCategoryView() {
-		return categoryView;
+		return new CategoryViewImpl();
 	}
 }

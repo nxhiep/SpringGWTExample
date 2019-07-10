@@ -1,11 +1,11 @@
 package com.spring.gwt.client.activities.home;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.spring.gwt.client.activities.basic.BasicViewImpl;
 
@@ -16,7 +16,8 @@ public class HomeViewImpl extends BasicViewImpl implements HomeView {
 	interface BasicViewImplUiBinder extends UiBinder<Widget, HomeViewImpl> {
 	}
 	
-	@UiField Button buttonCategory;
+	@UiField Button buttonCategory, buttonCreateTestModel;
+	@UiField HTML createTestModelStatusPanel;
 
 	public HomeViewImpl() {
 		super();
@@ -28,13 +29,18 @@ public class HomeViewImpl extends BasicViewImpl implements HomeView {
 		super.refreshView();
 	}
 	
-	@UiHandler("buttonCategory")
-	public void clickButtonCategory(ClickEvent event) {
-		eventBus.fireEvent(event);
+	@Override
+	public HasClickHandlers getButtonCategory() {
+		return buttonCategory;
 	}
 	
 	@Override
-	public Button getButtonCategory() {
-		return buttonCategory;
+	public HasClickHandlers getButtonCreateTestModel() {
+		return buttonCreateTestModel;
+	}
+	
+	@Override
+	public void updateStatusCreateTestModel(String status) {
+		createTestModelStatusPanel.setHTML(status);
 	}
 }

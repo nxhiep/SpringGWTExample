@@ -1,9 +1,13 @@
 package com.spring.gwt.client.activities.home;
 
-import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.spring.gwt.client.activities.basic.BasicView;
 
 public interface HomeView extends BasicView {
 
-	Button getButtonCategory();
+	HasClickHandlers getButtonCategory();
+
+	HasClickHandlers getButtonCreateTestModel();
+
+	void updateStatusCreateTestModel(String status);
 }

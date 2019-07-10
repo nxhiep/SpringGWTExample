@@ -1,5 +1,6 @@
 package com.spring.gwt.client.activities.category;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
@@ -31,10 +32,11 @@ public class CategoryActivity extends BasicActivity {
 	@Override
 	protected void bind() {
 		super.bind();
-		addHandlerRegistration(eventBus.addHandler(ClickEvent.getType(), new ClickHandler() {
+		addHandlerRegistration(view.getButtonHome().addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent event) {
+				GWT.log("goTo HomePlace");
 				goTo(new HomePlace());
 			}
 		}));

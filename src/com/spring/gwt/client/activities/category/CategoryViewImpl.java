@@ -1,10 +1,9 @@
 package com.spring.gwt.client.activities.category;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Widget;
 import com.spring.gwt.client.activities.basic.BasicViewImpl;
@@ -23,8 +22,8 @@ public class CategoryViewImpl extends BasicViewImpl implements CategoryView {
 		setView(uiBinder.createAndBindUi(this));
 	}
 	
-	@UiHandler("buttonHome")
-	public void clickButtonHome(ClickEvent event) {
-		eventBus.fireEvent(event);
+	@Override
+	public HasClickHandlers getButtonHome() {
+		return buttonHome;
 	}
 }
