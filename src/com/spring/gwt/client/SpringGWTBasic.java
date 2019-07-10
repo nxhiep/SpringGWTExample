@@ -24,7 +24,7 @@ public class SpringGWTBasic implements EntryPoint {
 		activityManager.setDisplay(display);
 		
 		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
-		final PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
+		PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
 		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new HomePlace());
 		historyHandler.handleCurrentHistory();
 		RootPanel.get("root-panel").add(display);

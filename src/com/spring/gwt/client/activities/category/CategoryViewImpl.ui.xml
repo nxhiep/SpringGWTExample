@@ -4,6 +4,7 @@
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel ui:field="mainPanel" styleName="category-page">
+		<h3>Category Page</h3>
 		<g:Button ui:field="buttonHome" text="Home"></g:Button>
 	</g:HTMLPanel>
 </ui:UiBinder> 
