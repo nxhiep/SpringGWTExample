@@ -2,27 +2,31 @@ package com.spring.gwt.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.spring.gwt.shared.TestModel;
+import com.google.gwt.place.shared.PlaceHistoryHandler;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
+import com.spring.gwt.client.activities.AppPlaceHistoryMapper;
+import com.spring.gwt.client.activities.AsyncActivityManager;
+import com.spring.gwt.client.activities.AsyncActivityMapper;
+import com.spring.gwt.client.activities.ClientFactory;
+import com.spring.gwt.client.activities.ClientFactoryImpl;
+import com.spring.gwt.client.activities.SplitAppActivityMapper;
+import com.spring.gwt.client.activities.home.HomePlace;
 
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
 public class SpringGWTBasic implements EntryPoint {
 	
 	public void onModuleLoad() {
-		GWT.log("Updating...");
-		ClientData.DATA_SERVICE.updateTestModel(new AsyncCallback<TestModel>() {
-			
-			@Override
-			public void onSuccess(TestModel result) {
-				GWT.log("Update success TestModel name " + result.getName() + " - id " + result.getId());
-			}
-			
-			@Override
-			public void onFailure(Throwable caught) {
-				GWT.log("Update error " + caught.getMessage());
-			}
-		});
+		ClientFactory clientFactory = new ClientFactoryImpl();
+        
+		SimplePanel display = new SimplePanel();
+		AsyncActivityMapper activityMapper = new SplitAppActivityMapper(clientFactory);
+		AsyncActivityManager activityManager = new AsyncActivityManager(activityMapper, clientFactory.getEventBus());
+		activityManager.setDisplay(display);
+		
+		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
+		final PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
+		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new HomePlace());
+		historyHandler.handleCurrentHistory();
+		RootPanel.get("root-panel").add(display);
 	}
 }
