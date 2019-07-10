@@ -4,6 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.spring.gwt.shared.TestModel;
 import com.spring.gwt.shared.UserInfo;
 
 public class MyContextListener implements ServletContextListener {
@@ -14,7 +15,8 @@ public class MyContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		ObjectifyService.init();
+		ObjectifyService.begin();
+		ObjectifyService.register(TestModel.class);
 		ObjectifyService.register(UserInfo.class);
 	}
 }

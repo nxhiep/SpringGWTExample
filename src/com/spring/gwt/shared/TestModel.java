@@ -5,22 +5,22 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
-public class UserInfo implements IBasic {
+public class TestModel implements IBasic {
 
 	private static final long serialVersionUID = 1L;
-	@Id private String id;
+	@Id private Long id;
 	@Index private String name;
 	@Index private Long lastUpdate;
 	@Index private Long createDate;
 	
-	public UserInfo() {}
+	public TestModel() {}
 	
 	@Override
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
