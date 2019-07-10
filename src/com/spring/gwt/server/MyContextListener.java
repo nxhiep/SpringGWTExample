@@ -15,7 +15,6 @@ public class MyContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		ObjectifyService.begin();
 		ObjectifyService.register(TestModel.class);
 		ObjectifyService.register(UserInfo.class);
 	}
