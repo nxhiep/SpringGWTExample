@@ -17,6 +17,7 @@ public class CategoryPlace extends BasicPlace {
 	public CategoryPlace(Long id, String name) {
 		super(PlaceToken.CATEGORY_PLACE + "?"+PARAM_ID+"=" + id + (name != null && !name.isEmpty() ? "&" + PARAM_NAME + "=" + name : ""));
 		setId(id);
+		setName(name);
 	}
 	
 	public void setId(Long id) {

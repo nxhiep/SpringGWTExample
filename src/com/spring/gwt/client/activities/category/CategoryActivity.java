@@ -13,6 +13,8 @@ import com.spring.gwt.client.activities.home.HomePlace;
 public class CategoryActivity extends BasicActivity {
 	
 	private CategoryView view;
+	private Long id;
+	private String name;
 	
 	public CategoryActivity(Place place, ClientFactory clientFactory) {
 		super(place, clientFactory);
@@ -21,6 +23,8 @@ public class CategoryActivity extends BasicActivity {
 	@Override
 	protected void getParams(Place place) {
 		super.getParams(place);
+		id = ((CategoryPlace) place).getId();
+		name = ((CategoryPlace) place).getName();
 	}
 	
 	@Override
@@ -45,5 +49,6 @@ public class CategoryActivity extends BasicActivity {
 	@Override
 	protected void loadData() {
 		super.loadData();
+		GWT.log("id " + id + " --- name " + name);
 	}
 }
