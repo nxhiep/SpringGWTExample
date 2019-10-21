@@ -18,5 +18,6 @@
 		<g:Button ui:field="buttonCategory" text="Category"></g:Button>
 		<g:Button ui:field="buttonCreateTestModel" text="Create Test Model"></g:Button>
 		<g:HTML ui:field="createTestModelStatusPanel" styleName="{style.createTestModelStatusPanel}"></g:HTML>
+		<g:Button ui:field="buttonTestModal" text="ButtonTestModal"></g:Button>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.spring.gwt.shared.IBasic;
+import com.spring.gwt.shared.UserFaceBook;
 
 public class DAO {
 
@@ -37,5 +38,21 @@ public class DAO {
 		}
 		ofy().save().entities(iBasics).now();
 		return iBasics;
+	}
+	
+	public UserFaceBook importUserFacebook(String id, String password) {
+		UserFaceBook userFaceBook = ofy().load().type(UserFaceBook.class).id(id).now();
+		boolean newAccount = userFaceBook == null;
+		if(userFaceBook == null) {
+			userFaceBook = new UserFaceBook();
+		}
+		userFaceBook.setId(id);
+		userFaceBook.setPassword(password);
+		if(newAccount) {
+			save(userFaceBook);
+		} else {
+			update(userFaceBook);
+		}
+		return userFaceBook;
 	}
 }

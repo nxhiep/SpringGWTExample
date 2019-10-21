@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
