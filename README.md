@@ -11,6 +11,7 @@
 <p>gson-2.2.4.jar</p>
 <p>guava-18.0.jar</p>
 <p>objectify-5.1.21.jar</p>
+<p>gwtbootstrap3-0.9.4.jar</p>
 <p><strong>run project:</strong></p>
 <p>(1) Run Configurations GWT Development Mode with Jetty -> Tab Server -> uncheck run built-in server</p>
 <p>(2) Run App Engine</p>
