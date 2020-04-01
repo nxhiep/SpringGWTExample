@@ -1,7 +1,7 @@
 package com.spring.gwt.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.spring.gwt.shared.TestModel;
+import com.spring.gwt.shared.model.TestModel;
 
 /**
  * The async counterpart of <code>GreetingService</code>.

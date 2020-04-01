@@ -7,20 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HomeController {
+public class HomeController extends BasicController {
 
 //	PAGE
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String homePage(Model model, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Model model, HttpServletRequest request, HttpServletResponse response) {
 		return "home";
 	}
-
-//	API
-	@RequestMapping(value = "/get-string", method = RequestMethod.GET)
-	public @ResponseBody String getString(Model model, HttpServletRequest request, HttpServletResponse response) {
-		return "OK";
+	
+	@RequestMapping(value = "/cms", method = RequestMethod.GET)
+	public String cms(Model model, HttpServletRequest request, HttpServletResponse response) {
+		LOG().warning("CMS page");
+		return "cms";
 	}
 }

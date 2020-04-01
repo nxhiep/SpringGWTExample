@@ -11,7 +11,7 @@ import com.spring.gwt.client.ClientData;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.basic.BasicActivity;
 import com.spring.gwt.client.activities.category.CategoryPlace;
-import com.spring.gwt.shared.TestModel;
+import com.spring.gwt.shared.model.TestModel;
 
 public class HomeActivity extends BasicActivity {
 	
