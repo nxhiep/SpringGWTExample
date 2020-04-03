@@ -1,12 +1,172 @@
+@import './mixin.scss';
+
 body {
     margin: 0;
     padding: 0;
 }
 
 ul {
-list-style-type: none;
+    list-style-type: none;
 }
 
-button, input {
+button,
+input {
     outline: none;
+}
+
+:root {
+    --main-color: #3f51b5;
+    --main-background-color: #f8fdff
+}
+
+@for $i from 1 through 10 {
+    @include dot($i);
+}
+
+@include makeLoading(var(--main-color));
+@include makeScrollStyle(html, 10px, 10px, 10px, #999);
+@include makeScrollStyle(body, 10px, 10px, 10px, #999);
+
+.flex {
+    display: flex;
+}
+
+.flex-ai-center {
+    align-items: center;
+}
+
+.flex-jc-center {
+    justify-content: center;
+}
+
+.flex-ai-left {
+    align-items: left;
+}
+
+.flex-jc-left {
+    justify-content: left;
+}
+
+.flex-ai-right {
+    align-items: right;
+}
+
+.flex-jc-right {
+    justify-content: right;
+}
+
+.flex-jc-space-between {
+    justify-content: space-between;
+}
+
+.loading-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+}
+
+.basic-search-box {
+    .search-box-dropdown-panel {}
+
+    .search-box-text-box {
+        border: 1px solid #ddd;
+        padding-left: 7px;
+        width: calc(100% - 35px);
+        height: 35px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .search-box-button {
+        background-color: #ddd;
+        width: 35px;
+        height: 35px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
+
+.button-icon {
+    background-color: #ddd;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gwt-Button {
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.gwt-Button:hover {
+    background-color: #ddd;
+}
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .basic-page {
+        width: 100%;
+        height: 100%;
+        .header-panel {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #ddd;
+
+            .header-left {
+                width: 200px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .header-right {
+                width: calc(100% - 200px);
+                height: 100%;
+
+                .title-panel {
+                    width: calc(100% - 100px);
+                    text-align: center;
+                }
+                .user-panel {
+                    width: 100px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .body-panel {
+            height: calc(100% - 50px);
+            width: 100%;
+            display: flex;
+
+            .left-panel {
+                width: 200px;
+                height: 100%;
+                border-right: 1px solid #ddd;
+            }
+
+            .content-panel {
+                width: calc(100% - 200px);
+                height: 100%;
+            }
+        }
+    }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	>
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel ui:field="mainPanel">
+		<div class="row">
+			<div class="col-sm-12 col-md-4">Tên</div>
+			<div class="col-sm-12 col-md-8">
+				<g:TextBox ui:field="nameBox"></g:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">Mô tả ngắn</div>
+			<div class="col-sm-12 col-md-8">
+				<g:TextArea ui:field="shortDescriptionBox"></g:TextArea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">Mô tả</div>
+			<div class="col-sm-12 col-md-8">
+				<g:TextArea ui:field="descriptionBox"></g:TextArea>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

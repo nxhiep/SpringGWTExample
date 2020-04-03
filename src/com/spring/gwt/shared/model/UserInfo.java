@@ -10,7 +10,7 @@ import com.spring.gwt.shared.IBasic;
 public class UserInfo implements IBasic {
 
 	private static final long serialVersionUID = 1L;
-	@Id private String id;
+	@Id private String id = Config.TEXT_EMPTY;
 	@Index private String account = Config.TEXT_EMPTY;
 	@Index private String name = Config.TEXT_EMPTY;
 	private String facebookId = Config.TEXT_EMPTY;

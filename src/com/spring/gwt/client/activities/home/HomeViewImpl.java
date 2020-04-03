@@ -1,17 +1,18 @@
 package com.spring.gwt.client.activities.home;
 
-import org.gwtbootstrap3.client.ui.Modal;
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.spring.gwt.client.activities.basic.BasicViewImpl;
+import com.spring.gwt.client.activities.home.widgets.CreateMealPopup;
+import com.spring.gwt.client.activities.view.BasicSearchBox;
+import com.spring.gwt.shared.model.MealInfo;
 
 public class HomeViewImpl extends BasicViewImpl implements HomeView {
 
@@ -20,38 +21,46 @@ public class HomeViewImpl extends BasicViewImpl implements HomeView {
 	interface BasicViewImplUiBinder extends UiBinder<Widget, HomeViewImpl> {
 	}
 	
-	@UiField Button buttonCategory, buttonCreateTestModel, buttonTestModal;
-	@UiField HTML createTestModelStatusPanel;
+	@UiField BasicSearchBox searchBox;
+	@UiField Button addMealButton;
+	@UiField FlowPanel contentPanel;
 
+	private CreateMealPopup createMealPopup;
+	
 	public HomeViewImpl() {
 		super();
 		setView(uiBinder.createAndBindUi(this));
-		buttonTestModal.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				new Modal().show();
-			}
-		});
+		addMealButton.setHTML("<i class=\"far fa-plus\"></i>");
+		setTitlePage("Home");
 	}
 	
 	@Override
 	public void refreshView() {
 		super.refreshView();
 	}
-	
+
 	@Override
-	public HasClickHandlers getButtonCategory() {
-		return buttonCategory;
+	public void showMeals(List<MealInfo> mealInfos) {
+		contentPanel.clear();
+		if(mealInfos == null || mealInfos.isEmpty()) {
+			contentPanel.add(new HTML("Danh sách trống!"));
+			return;
+		}
+		for (MealInfo mealInfo : mealInfos) {
+			contentPanel.add(new HTML(mealInfo.getName()));
+		}
 	}
 	
 	@Override
-	public HasClickHandlers getButtonCreateTestModel() {
-		return buttonCreateTestModel;
+	public Button getAddMealButton() {
+		return addMealButton;
 	}
 	
 	@Override
-	public void updateStatusCreateTestModel(String status) {
-		createTestModelStatusPanel.setHTML(status);
+	public CreateMealPopup getCreateMealPopup() {
+		if(createMealPopup == null) {
+			createMealPopup = new CreateMealPopup();
+		}
+		return createMealPopup;
 	}
 }

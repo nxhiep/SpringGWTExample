@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<link rel="stylesheet" type="text/css" href="/resources/fa-icons/css/fa-icons.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/scss/index.css" />
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/bootstrap-notify.min.js"></script>

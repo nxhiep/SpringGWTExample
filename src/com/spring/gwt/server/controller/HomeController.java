@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController extends BasicController {
 
 //	PAGE
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) {
+		LOG().warning("Home page");
 		return "home";
 	}
 	
-	@RequestMapping(value = "/cms", method = RequestMethod.GET)
+	@RequestMapping(value="/cms", method = RequestMethod.GET)
 	public String cms(Model model, HttpServletRequest request, HttpServletResponse response) {
 		LOG().warning("CMS page");
 		return "cms";

@@ -9,6 +9,13 @@
 	<inherits name="com.google.gwt.json.JSON" />
 	<!-- Other module inherits -->
 	<inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
+	<inherits name="org.gwtbootstrap3.extras.notify.Notify"/>
+	<inherits name="org.gwtbootstrap3.extras.bootbox.Bootbox"/>
+	<inherits name="org.gwtbootstrap3.extras.datepicker.DatePicker"/>
+	<inherits name="org.gwtbootstrap3.extras.datetimepicker.DateTimePicker"/>
+	<inherits name="org.gwtbootstrap3.extras.fullcalendar.FullCalendar"/>
+	<inherits name="org.gwtbootstrap3.extras.select.Select"/>
+	<inherits name="org.gwtbootstrap3.extras.summernote.Summernote"/>
 	
 	<!-- Specify the app entry point class. -->
 	<entry-point class='com.spring.gwt.client.SpringGWTBasic' />

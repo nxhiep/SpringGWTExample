@@ -1,13 +1,18 @@
 package com.spring.gwt.client.activities.home;
 
-import com.google.gwt.event.dom.client.HasClickHandlers;
+import java.util.List;
+
+import com.google.gwt.user.client.ui.Button;
 import com.spring.gwt.client.activities.basic.BasicView;
+import com.spring.gwt.client.activities.home.widgets.CreateMealPopup;
+import com.spring.gwt.shared.model.MealInfo;
 
 public interface HomeView extends BasicView {
 
-	HasClickHandlers getButtonCategory();
+	void showMeals(List<MealInfo> result);
 
-	HasClickHandlers getButtonCreateTestModel();
+	Button getAddMealButton();
 
-	void updateStatusCreateTestModel(String status);
+	CreateMealPopup getCreateMealPopup();
+
 }

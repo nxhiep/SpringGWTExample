@@ -1,23 +1,17 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:v="urn:import:com.spring.gwt.client.activities.view"
 	>
 	<ui:style>
-	.createTestModelStatusPanel {
-	border: 1px solid #ddd;
-	width: 300px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 10px 0;
-	}
 	</ui:style>
 	<g:HTMLPanel ui:field="mainPanel" styleName="home-page">
-		<div><strong>Home Page</strong></div>
-		<g:Button ui:field="buttonCategory" text="Category"></g:Button>
-		<g:Button ui:field="buttonCreateTestModel" text="Create Test Model"></g:Button>
-		<g:HTML ui:field="createTestModelStatusPanel" styleName="{style.createTestModelStatusPanel}"></g:HTML>
-		<g:Button ui:field="buttonTestModal" text="ButtonTestModal"></g:Button>
+		<div class="flex flex-ai-center flex-jc-space-between">
+			<v:BasicSearchBox ui:field="searchBox"></v:BasicSearchBox>
+			<div class="flex flex-ai-center">
+				<g:Button ui:field="addMealButton" styleName="button-icon"></g:Button>
+			</div>
+		</div>
+		<g:FlowPanel ui:field="contentPanel"></g:FlowPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

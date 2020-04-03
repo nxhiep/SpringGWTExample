@@ -10,7 +10,7 @@ import com.spring.gwt.shared.IBasic;
 public class UserLike implements IBasic {
 
 	private static final long serialVersionUID = 1L;
-	@Id private String id;
+	@Id private Long id;
 	@Index private String userId = Config.TEXT_EMPTY;
 	@Index private String parentId = Config.TEXT_EMPTY; // userId, mealId, discussionId
 	@Index private int type = Config.USER_LIKE_TYPE_OTHER;
@@ -21,11 +21,11 @@ public class UserLike implements IBasic {
 	public UserLike() {}
 	
 	@Override
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

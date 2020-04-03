@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel styleName="header-panel flex flex-ai-center flex-jc-space-between">
+		<div class="header-left"><strong class="logo">Hello World</strong></div>
+		<div class="header-right flex flex-ai-center flex-jc-space-between">
+			<g:HTML ui:field="titlePanel" styleName="title-panel"></g:HTML>
+			<div class="user-panel"><i class="fa fa-user"></i></div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

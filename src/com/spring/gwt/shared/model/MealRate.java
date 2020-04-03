@@ -10,7 +10,7 @@ import com.spring.gwt.shared.IBasic;
 public class MealRate implements IBasic {
 
 	private static final long serialVersionUID = 1L;
-	@Id private String id;
+	@Id private Long id;
 	@Index private String name = Config.TEXT_EMPTY;
 	@Index private String shortDescription = Config.TEXT_EMPTY;
 	private String description = Config.TEXT_EMPTY;
@@ -21,11 +21,11 @@ public class MealRate implements IBasic {
 	public MealRate() {}
 	
 	@Override
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
