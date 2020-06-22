@@ -14,8 +14,10 @@ import com.spring.gwt.client.activities.consumable.ConsumablePlace;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypePlace;
 import com.spring.gwt.client.activities.home.HomePlace;
 import com.spring.gwt.client.activities.products.ProductsPlace;
+import com.spring.gwt.client.activities.products.details.ProductDetailsPlace;
 import com.spring.gwt.client.activities.progress.ProgressPlace;
 import com.spring.gwt.client.activities.settings.SettingsPlace;
+import com.spring.gwt.shared.Config;
 import com.spring.gwt.shared.PlaceToken;
 
 public class AppPlaceHistoryMapper implements PlaceHistoryMapper {
@@ -45,6 +47,13 @@ public class AppPlaceHistoryMapper implements PlaceHistoryMapper {
 		if(token.contains(PlaceToken.PROGRESS_PLACE)) {
 			return new ProgressPlace();
 		}
+		if(token.contains(PlaceToken.PRODUCT_DETAILS_PLACE)) {
+			Long id = Config.LONG_NULL;
+			if(params.containsKey(ProductDetailsPlace.PARAM_PRODUCT_ID)) {
+				id = Long.parseLong(params.get(ProductDetailsPlace.PARAM_PRODUCT_ID));
+			}
+			return new ProductDetailsPlace(id);
+		}
 		return new HomePlace();
 	}
 
@@ -65,12 +74,16 @@ public class AppPlaceHistoryMapper implements PlaceHistoryMapper {
 	
 	public static native JavaScriptObject getURLSearchParams(String url) /*-{
 		var map = {};
-		var mySearchParams = new $wnd.URLSearchParams(url);
-		var entries = mySearchParams.entries();
-		var result = entries.next();
-		while (result && !result.done) {
-			map[result.value[0]] = result.value[1];
-			result = entries.next();
+		try {
+			var mySearchParams = new $wnd.URLSearchParams(url);
+			var entries = mySearchParams.entries();
+			var result = entries.next();
+			while (result && !result.done) {
+				map[result.value[0]] = result.value[1];
+				result = entries.next();
+			}
+		} catch(e){
+			$wnd.console.log('getURLSearchParams error', e);
 		}
 		return map;
 	}-*/;

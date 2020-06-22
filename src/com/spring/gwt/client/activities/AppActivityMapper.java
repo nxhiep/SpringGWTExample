@@ -15,6 +15,8 @@ import com.spring.gwt.client.activities.home.HomeActivity;
 import com.spring.gwt.client.activities.home.HomePlace;
 import com.spring.gwt.client.activities.products.ProductsActivity;
 import com.spring.gwt.client.activities.products.ProductsPlace;
+import com.spring.gwt.client.activities.products.details.ProductDetailsActivity;
+import com.spring.gwt.client.activities.products.details.ProductDetailsPlace;
 import com.spring.gwt.client.activities.progress.ProgressActivity;
 import com.spring.gwt.client.activities.progress.ProgressPlace;
 import com.spring.gwt.client.activities.settings.SettingsActivity;
@@ -44,6 +46,8 @@ public class AppActivityMapper implements AsyncActivityMapper {
 			runAsync(activityCallbackHandler, new SettingsActivity(place, clientFactory));
 		} else if (place instanceof ProgressPlace) {
 			runAsync(activityCallbackHandler, new ProgressActivity(place, clientFactory));
+		} else if (place instanceof ProductDetailsPlace) {
+			runAsync(activityCallbackHandler, new ProductDetailsActivity(place, clientFactory));
 		}
 	}
 

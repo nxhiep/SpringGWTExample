@@ -7,6 +7,7 @@ import com.spring.gwt.client.activities.consumable.ConsumableView;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypeView;
 import com.spring.gwt.client.activities.home.HomeView;
 import com.spring.gwt.client.activities.products.ProductsView;
+import com.spring.gwt.client.activities.products.details.ProductDetailsView;
 import com.spring.gwt.client.activities.progress.ProgressView;
 import com.spring.gwt.client.activities.settings.SettingsView;
 
@@ -20,4 +21,5 @@ public interface ClientFactory {
 	ProductsView getProductsView();
 	SettingsView getSettingsView();
 	ProgressView getProgressView();
+	ProductDetailsView getProductDetailsView();
 }

@@ -13,6 +13,8 @@ import com.spring.gwt.client.activities.home.HomeView;
 import com.spring.gwt.client.activities.home.HomeViewImpl;
 import com.spring.gwt.client.activities.products.ProductsView;
 import com.spring.gwt.client.activities.products.ProductsViewImpl;
+import com.spring.gwt.client.activities.products.details.ProductDetailsView;
+import com.spring.gwt.client.activities.products.details.ProductDetailsViewImpl;
 import com.spring.gwt.client.activities.progress.ProgressView;
 import com.spring.gwt.client.activities.progress.ProgressViewImpl;
 import com.spring.gwt.client.activities.settings.SettingsView;
@@ -70,5 +72,10 @@ public class ClientFactoryImpl implements ClientFactory {
 	@Override
 	public ProgressView getProgressView() {
 		return new ProgressViewImpl();
+	}
+
+	@Override
+	public ProductDetailsView getProductDetailsView() {
+		return new ProductDetailsViewImpl();
 	}
 }

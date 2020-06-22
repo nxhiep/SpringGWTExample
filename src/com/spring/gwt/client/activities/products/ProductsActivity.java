@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.spring.gwt.client.ClientData;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.basic.BasicActivity;
+import com.spring.gwt.client.activities.products.details.ProductDetailsPlace;
 import com.spring.gwt.client.activities.products.widgets.CreateProductDialog;
 import com.spring.gwt.client.event.ActionEvent;
 import com.spring.gwt.client.event.ActionEvent.Action;
@@ -56,7 +57,7 @@ public class ProductsActivity extends BasicActivity {
 				if(Action.EDIT.equals(event.getAction())) {
 					showUpdateProduct((Product) event.getIBasic());
 				} else if(Action.VIEW.equals(event.getAction())) {
-					//TODO: show details
+					goTo(new ProductDetailsPlace((Product) event.getIBasic()));
 				} else if(Action.DELETE.equals(event.getAction())) {
 					deleteObject(event.getIBasic());
 				}

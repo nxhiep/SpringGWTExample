@@ -37,10 +37,6 @@ public class ClientData {
 	}
 	
 	public static void save(IBasic iBasic, AsyncCallback<IBasic> callback) {
-		if(LoginManager.isLogedIn()) {
-			LoginManager.openLoginDialog();
-			return;
-		}
 		DATA_SERVICE.save(iBasic, new AsyncCallback<IBasic>() {
 			
 			@Override
@@ -62,10 +58,6 @@ public class ClientData {
 	}
 	
 	public static void saves(List<IBasic> iBasics, AsyncCallback<List<IBasic>> callback) {
-		if(LoginManager.isLogedIn()) {
-			LoginManager.openLoginDialog();
-			return;
-		}
 		DATA_SERVICE.saves(iBasics, new AsyncCallback<List<IBasic>>() {
 			
 			@Override
@@ -87,10 +79,6 @@ public class ClientData {
 	}
 	
 	public static void delete(IBasic iBasic, AsyncCallback<Void> callback) {
-		if(LoginManager.isLogedIn()) {
-			LoginManager.openLoginDialog();
-			return;
-		}
 		DATA_SERVICE.delete(iBasic, new AsyncCallback<Void>() {
 			
 			@Override
@@ -112,10 +100,6 @@ public class ClientData {
 	}
 	
 	public static void deletes(List<IBasic> iBasics, AsyncCallback<Void> callback) {
-		if(LoginManager.isLogedIn()) {
-			LoginManager.openLoginDialog();
-			return;
-		}
 		DATA_SERVICE.deletes(iBasics, new AsyncCallback<Void>() {
 			
 			@Override

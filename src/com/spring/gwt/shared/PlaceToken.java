@@ -8,4 +8,5 @@ public class PlaceToken {
 	public static final String PRODUCTS_PLACE = "products";
 	public static final String SETTINGS_PLACE = "settings";
 	public static final String PROGRESS_PLACE = "progress";
+	public static final String PRODUCT_DETAILS_PLACE = "product";
 }
