@@ -150,7 +150,7 @@ public class UserInfo implements IBasic {
 	}
 	
 	public boolean isLogedIn() {
-		return this.loginStatus == Config.LOGIN_SUCCESS;
+		return this.id != null && !this.id.isEmpty() && this.loginStatus == Config.LOGIN_SUCCESS;
 	}
 	
 	public String getAccount() {
@@ -162,10 +162,16 @@ public class UserInfo implements IBasic {
 	}
 	
 	public String getDisplayName() {
-		if(fullName != null) {
+		if(fullName != null && !fullName.isEmpty()) {
 			return fullName;
 		}
-		return name;
+		if(name != null && !name.isEmpty()) {
+			return name;
+		}
+		if(account != null && !account.isEmpty()) {
+			return account;
+		}
+		return id;
 	}
 	
 	public String getSessionId() {

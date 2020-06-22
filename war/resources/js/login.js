@@ -11,11 +11,11 @@ function onLogin(button) {
 		alert('password');
 		return;
 	}
-	console.log(1, password);
+	$(button).addClass('.loading-css');
 	password = encryptPassword(account, password);
-	console.log(2, password);
 	$.post('/api/login', { account: account, password: password }, function(user) {
 		loginStatus(user); 
+		$(button).removeClass('.loading-css');
 	});
 }
 
@@ -47,9 +47,11 @@ function onRegister(button) {
 		alert('rePassword');
 		return;
 	}
+	$(button).addClass('.loading-css');
 	password = encryptPassword(account, password);
 	$.post('/api/register', { account: account, email: email, phoneNumber: phoneNumber, password: password, rePassword: rePassword }, function(user) {
 		loginStatus(user); 
+		$(button).removeClass('.loading-css');
 	});
 }
 

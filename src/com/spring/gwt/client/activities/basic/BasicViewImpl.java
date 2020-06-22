@@ -5,8 +5,10 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.spring.gwt.client.activities.basic.widgets.HeaderPanel;
 
 public class BasicViewImpl extends Composite implements BasicView {
 
@@ -20,6 +22,8 @@ public class BasicViewImpl extends Composite implements BasicView {
 	
 	public static class BasicLayout {
 		@UiField protected HTMLPanel mainPanel;
+		@UiField protected HeaderPanel headerPanel;
+		@UiField protected FlowPanel contentPanel;
 		private BasicViewImpl basicViewImpl;
 		
 		public BasicLayout(BasicViewImpl basicViewImpl) {
@@ -33,6 +37,14 @@ public class BasicViewImpl extends Composite implements BasicView {
 		public Widget asWidget() {
 			return basicViewImpl;
 		}
+		
+		public HeaderPanel getHeaderPanel() {
+			return headerPanel;
+		}
+		
+		public FlowPanel getContentPanel() {
+			return contentPanel;
+		}
 	}
 	
 	public BasicViewImpl() {
@@ -41,8 +53,8 @@ public class BasicViewImpl extends Composite implements BasicView {
 	}
 	
 	protected void setView(Widget widget) {
-		getBasicLayout().getMainPanel().clear();
-		getBasicLayout().getMainPanel().add(widget);
+		getBasicLayout().getContentPanel().clear();
+		getBasicLayout().getContentPanel().add(widget);
 	}
 	
 	@Override
@@ -57,5 +69,10 @@ public class BasicViewImpl extends Composite implements BasicView {
 	@Override
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
+	}
+	
+	@Override
+	public HeaderPanel getHeaderPanel() {
+		return basicLayout.getHeaderPanel();
 	}
 }

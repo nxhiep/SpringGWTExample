@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.activity.shared.AbstractActivity;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
+import com.spring.gwt.client.ClientData;
+import com.spring.gwt.client.LoginManager;
 import com.spring.gwt.client.activities.ClientFactory;
+import com.spring.gwt.client.activities.view.Toaster;
 
 public class BasicActivity extends AbstractActivity {
 
@@ -45,6 +52,38 @@ public class BasicActivity extends AbstractActivity {
 
 	protected void bind() {
 		removeHandlerRegistration();
+		addHandlerRegistration(view.getHeaderPanel().getButtonLogin().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				LoginManager.openLoginDialog();
+			}
+		}));
+		addHandlerRegistration(view.getHeaderPanel().getButtonRegister().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				LoginManager.openRegisterDialog();
+			}
+		}));
+		addHandlerRegistration(view.getHeaderPanel().getButtonLogout().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				ClientData.DATA_SERVICE.logout(new AsyncCallback<Void>() {
+
+					@Override
+					public void onFailure(Throwable caught) {
+						Toaster.showError("Có lỗi xảy ra!");
+					}
+
+					@Override
+					public void onSuccess(Void result) {
+						Window.Location.reload();
+					}
+				});
+			}
+		}));
 	}
 
 	protected void loadData() {

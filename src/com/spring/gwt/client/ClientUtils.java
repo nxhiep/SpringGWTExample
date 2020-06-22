@@ -1,5 +1,6 @@
 package com.spring.gwt.client;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
 
 public class ClientUtils {
@@ -9,5 +10,9 @@ public class ClientUtils {
 			return object.get(key).isString().stringValue();
 		}
 		return "";
+	}
+	
+	public static void log(String message) {
+		GWT.log(message);
 	}
 }

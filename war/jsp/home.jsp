@@ -11,12 +11,6 @@
 	</head>
 <body>
 	<jsp:include page="/jsp/widgets/login.jsp"></jsp:include>
-	<div>
-		<button onclick="openLoginDialog()">Login</button>
-		<button onclick="openRegisterDialog()">Register</button>
-	</div>
-	<div>
-		<div id="content"></div>
-	</div>
+	<div id="content"></div>
 </body>
 </html>

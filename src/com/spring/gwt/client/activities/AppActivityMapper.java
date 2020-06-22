@@ -7,14 +7,18 @@ import com.google.gwt.user.client.Window;
 import com.spring.gwt.client.activities.basic.BasicActivity;
 import com.spring.gwt.client.activities.category.CategoryActivity;
 import com.spring.gwt.client.activities.category.CategoryPlace;
+import com.spring.gwt.client.activities.consumable.ConsumableActivity;
+import com.spring.gwt.client.activities.consumable.ConsumablePlace;
+import com.spring.gwt.client.activities.consumable.type.ConsumableTypeActivity;
+import com.spring.gwt.client.activities.consumable.type.ConsumableTypePlace;
 import com.spring.gwt.client.activities.home.HomeActivity;
 import com.spring.gwt.client.activities.home.HomePlace;
 
-public class SplitAppActivityMapper implements AsyncActivityMapper {
+public class AppActivityMapper implements AsyncActivityMapper {
 
 	private ClientFactory clientFactory;
 
-	public SplitAppActivityMapper(ClientFactory clientFactory) {
+	public AppActivityMapper(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
@@ -24,6 +28,10 @@ public class SplitAppActivityMapper implements AsyncActivityMapper {
 			runAsync(activityCallbackHandler, new HomeActivity(place, clientFactory));
 		} else if (place instanceof CategoryPlace) {
 			runAsync(activityCallbackHandler, new CategoryActivity(place, clientFactory));
+		} else if (place instanceof ConsumablePlace) {
+			runAsync(activityCallbackHandler, new ConsumableActivity(place, clientFactory));
+		} else if (place instanceof ConsumableTypePlace) {
+			runAsync(activityCallbackHandler, new ConsumableTypeActivity(place, clientFactory));
 		}
 	}
 
