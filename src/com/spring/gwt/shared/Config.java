@@ -8,6 +8,23 @@ public class Config {
 	public static final int STATUS_DELETED = -1;
 	public static final int STATUS_PRIVATE = 0;
 	public static final int STATUS_PUBLIC = 1;
+	
+	public static final int GENDER_OTHER = -1;
+	public static final int GENDER_FE_MALE = 0;
+	public static final int GENDER_MALE = 1;
+	
+	public static final int LOGIN_FAILED = -1;
+	public static final int LOGIN_SUCCESS = 0;
+	public static final int LOGIN_ACCOUNT_IS_USED = 1;
+	public static final int LOGIN_ACCOUNT_NOT_EXIST = 2;
+	public static final int LOGIN_WRONG_PASSWORD = 3;
+	public static final int LOGIN_WRONG_PROVIDER = 4;
+	public static final int LOGIN_ACCOUNT_NOT_ACTIVATED = 5;
+	public static final int LOGIN_MOBILE_IS_USED = 6;
+	
+	public static final String ADMIN_PASSWORD = "abc@123";
+	
+	public static final int DEFAULT_EXPIRED_TIME = 30;
 
 	public static boolean isFileNameImage(String fileName){
 		if(fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".png")

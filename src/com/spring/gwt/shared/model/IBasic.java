@@ -1,4 +1,4 @@
-package com.spring.gwt.shared;
+package com.spring.gwt.shared.model;
 
 import java.io.Serializable;
 

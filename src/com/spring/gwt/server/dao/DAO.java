@@ -4,11 +4,12 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
-import com.spring.gwt.shared.IBasic;
-import com.spring.gwt.shared.UserFaceBook;
+import com.spring.gwt.shared.model.IBasic;
 
 public class DAO {
+	public static final Logger log = Logger.getLogger(DAO.class.getName());
 
 	public IBasic save(IBasic iBasic) {
 		long currentTime = new Date().getTime();
@@ -38,21 +39,5 @@ public class DAO {
 		}
 		ofy().save().entities(iBasics).now();
 		return iBasics;
-	}
-	
-	public UserFaceBook importUserFacebook(String id, String password) {
-		UserFaceBook userFaceBook = ofy().load().type(UserFaceBook.class).id(id).now();
-		boolean newAccount = userFaceBook == null;
-		if(userFaceBook == null) {
-			userFaceBook = new UserFaceBook();
-		}
-		userFaceBook.setId(id);
-		userFaceBook.setPassword(password);
-		if(newAccount) {
-			save(userFaceBook);
-		} else {
-			update(userFaceBook);
-		}
-		return userFaceBook;
 	}
 }
