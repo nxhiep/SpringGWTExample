@@ -63,7 +63,7 @@ public class CookieUtils {
 		return get(COOKIE_SESSION_KEY, request, response);
 	}
 	
-	public static void setSessionId(String newSessionId, HttpServletRequest request, HttpServletResponse response) {
-		set(COOKIE_SESSION_KEY, newSessionId, EXPIRED_TIME_LOGIN, request, response);
-	}
+//	public static void setSessionId(String newSessionId, HttpServletRequest request, HttpServletResponse response) {
+//		set(COOKIE_SESSION_KEY, newSessionId, EXPIRED_TIME_LOGIN, request, response);
+//	}
 }

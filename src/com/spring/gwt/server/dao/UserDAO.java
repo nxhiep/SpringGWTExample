@@ -35,8 +35,9 @@ public class UserDAO extends DAO {
 	
 	public void storeUserInfo(UserInfo userInfo, String sessionId, HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().setAttribute(KEY_SESSION_USER_ID, userInfo.getId());
+		userInfo.setSessionId(sessionId);
 		if (sessionId != null && !sessionId.isEmpty()) {
-			CookieUtils.setSessionId(sessionId, request, response);
+//			CookieUtils.setSessionId(sessionId, request, response);
 			CacheSupport.putLoginInfo(sessionId, userInfo.getId());
 		}
 	}
@@ -46,9 +47,9 @@ public class UserDAO extends DAO {
 		if (existUser != null) {
 			return new UserInfo(Config.LOGIN_ACCOUNT_IS_USED);
 		}
-		
 		String sessionId = request.getSession().getId();
 		userInfo.setId(userInfo.getAccount().toLowerCase());
+		ofy().save().entity(userInfo).now();
 		moreUserInfo(userInfo);
 		userInfo.setLoginStatus(Config.LOGIN_SUCCESS);
 		addUserFullTextSearch(userInfo, Constants.USER_INDEX_NAME);
@@ -73,6 +74,8 @@ public class UserDAO extends DAO {
 				String sessionId = request.getSession().getId();
 				storeUserInfo(userInfo, sessionId, request, response);
 				moreUserInfo(userInfo);
+				userInfo.setLoginStatus(Config.LOGIN_SUCCESS);
+				return userInfo;
 			}
 			return new UserInfo(Config.LOGIN_WRONG_PASSWORD); 
 		}

@@ -26,10 +26,13 @@ public class UserInfo implements IBasic {
 	@Index private Long createDate;
 	
 	@Ignore private int loginStatus = Config.LOGIN_FAILED;
+	@Ignore private String sessionId = Config.TEXT_EMPTY;
 	
 	public UserInfo() {}
 	
-	public UserInfo(int loginStatus) {}
+	public UserInfo(int loginStatus) {
+		this.loginStatus = loginStatus;
+	}
 	
 	@Override
 	public String getId() {
@@ -156,5 +159,20 @@ public class UserInfo implements IBasic {
 	
 	public void setAccount(String account) {
 		this.account = account;
+	}
+	
+	public String getDisplayName() {
+		if(fullName != null) {
+			return fullName;
+		}
+		return name;
+	}
+	
+	public String getSessionId() {
+		return sessionId;
+	}
+	
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 }

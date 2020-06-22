@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController extends BasicController {
 
 //	PAGE
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model, HttpServletRequest request, HttpServletResponse response) {
 		getCurrentUserInfoBySession(model, response, request);
 		return "home";

@@ -7,4 +7,5 @@ import com.spring.gwt.client.DataService;
  */
 @SuppressWarnings("serial")
 public class DataServiceImpl extends CustomRemoteServiceServlet implements DataService {
+
 }
