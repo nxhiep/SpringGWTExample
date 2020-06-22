@@ -13,6 +13,12 @@ import com.spring.gwt.client.activities.consumable.type.ConsumableTypeActivity;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypePlace;
 import com.spring.gwt.client.activities.home.HomeActivity;
 import com.spring.gwt.client.activities.home.HomePlace;
+import com.spring.gwt.client.activities.products.ProductsActivity;
+import com.spring.gwt.client.activities.products.ProductsPlace;
+import com.spring.gwt.client.activities.progress.ProgressActivity;
+import com.spring.gwt.client.activities.progress.ProgressPlace;
+import com.spring.gwt.client.activities.settings.SettingsActivity;
+import com.spring.gwt.client.activities.settings.SettingsPlace;
 
 public class AppActivityMapper implements AsyncActivityMapper {
 
@@ -32,6 +38,12 @@ public class AppActivityMapper implements AsyncActivityMapper {
 			runAsync(activityCallbackHandler, new ConsumableActivity(place, clientFactory));
 		} else if (place instanceof ConsumableTypePlace) {
 			runAsync(activityCallbackHandler, new ConsumableTypeActivity(place, clientFactory));
+		} else if (place instanceof ProductsPlace) {
+			runAsync(activityCallbackHandler, new ProductsActivity(place, clientFactory));
+		} else if (place instanceof SettingsPlace) {
+			runAsync(activityCallbackHandler, new SettingsActivity(place, clientFactory));
+		} else if (place instanceof ProgressPlace) {
+			runAsync(activityCallbackHandler, new ProgressActivity(place, clientFactory));
 		}
 	}
 

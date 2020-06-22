@@ -13,6 +13,9 @@ import com.spring.gwt.client.activities.category.CategoryPlace;
 import com.spring.gwt.client.activities.consumable.ConsumablePlace;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypePlace;
 import com.spring.gwt.client.activities.home.HomePlace;
+import com.spring.gwt.client.activities.products.ProductsPlace;
+import com.spring.gwt.client.activities.progress.ProgressPlace;
+import com.spring.gwt.client.activities.settings.SettingsPlace;
 import com.spring.gwt.shared.PlaceToken;
 
 public class AppPlaceHistoryMapper implements PlaceHistoryMapper {
@@ -32,6 +35,15 @@ public class AppPlaceHistoryMapper implements PlaceHistoryMapper {
 		}
 		if(token.contains(PlaceToken.CONSUMABLE_TYPE_PLACE)) {
 			return new ConsumableTypePlace();
+		}
+		if(token.contains(PlaceToken.PRODUCTS_PLACE)) {
+			return new ProductsPlace();
+		}
+		if(token.contains(PlaceToken.SETTINGS_PLACE)) {
+			return new SettingsPlace();
+		}
+		if(token.contains(PlaceToken.PROGRESS_PLACE)) {
+			return new ProgressPlace();
 		}
 		return new HomePlace();
 	}

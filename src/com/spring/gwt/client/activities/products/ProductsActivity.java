@@ -1,4 +1,4 @@
-package com.spring.gwt.client.activities.home;
+package com.spring.gwt.client.activities.products;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
@@ -6,11 +6,11 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.basic.BasicActivity;
 
-public class HomeActivity extends BasicActivity {
+public class ProductsActivity extends BasicActivity {
 	
-	private HomeView view;
+	private ProductsView view;
 	
-	public HomeActivity(Place place, ClientFactory clientFactory) {
+	public ProductsActivity(Place place, ClientFactory clientFactory) {
 		super(place, clientFactory);
 	}
 	
@@ -21,7 +21,7 @@ public class HomeActivity extends BasicActivity {
 	
 	@Override
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
-		view = clientFactory.getHomeView();
+		view = clientFactory.getProductsView();
 		super.start(panel, eventBus, view);
 	}
 	

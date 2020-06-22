@@ -11,6 +11,12 @@ import com.spring.gwt.client.activities.consumable.type.ConsumableTypeView;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypeViewImpl;
 import com.spring.gwt.client.activities.home.HomeView;
 import com.spring.gwt.client.activities.home.HomeViewImpl;
+import com.spring.gwt.client.activities.products.ProductsView;
+import com.spring.gwt.client.activities.products.ProductsViewImpl;
+import com.spring.gwt.client.activities.progress.ProgressView;
+import com.spring.gwt.client.activities.progress.ProgressViewImpl;
+import com.spring.gwt.client.activities.settings.SettingsView;
+import com.spring.gwt.client.activities.settings.SettingsViewImpl;
 
 public class ClientFactoryImpl implements ClientFactory {
 	private SimpleEventBus eventBus;
@@ -49,5 +55,20 @@ public class ClientFactoryImpl implements ClientFactory {
 	@Override
 	public ConsumableTypeView getConsumableTypeView() {
 		return new ConsumableTypeViewImpl();
+	}
+
+	@Override
+	public ProductsView getProductsView() {
+		return new ProductsViewImpl();
+	}
+
+	@Override
+	public SettingsView getSettingsView() {
+		return new SettingsViewImpl();
+	}
+
+	@Override
+	public ProgressView getProgressView() {
+		return new ProgressViewImpl();
 	}
 }

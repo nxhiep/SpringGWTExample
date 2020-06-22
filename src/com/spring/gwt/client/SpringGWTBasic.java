@@ -12,7 +12,7 @@ import com.spring.gwt.client.activities.AsyncActivityManager;
 import com.spring.gwt.client.activities.AsyncActivityMapper;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.ClientFactoryImpl;
-import com.spring.gwt.client.activities.consumable.ConsumablePlace;
+import com.spring.gwt.client.activities.home.HomePlace;
 import com.spring.gwt.shared.model.UserInfo;
 
 public class SpringGWTBasic implements EntryPoint {
@@ -42,7 +42,7 @@ public class SpringGWTBasic implements EntryPoint {
 		activityManager.setDisplay(display);
 		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 		PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
-		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new ConsumablePlace());
+		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new HomePlace());
 		historyHandler.handleCurrentHistory();
 		RootPanel.get("content").add(display);
 	}

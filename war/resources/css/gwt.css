@@ -45,3 +45,6 @@ body {
     display: block;
     padding: 7px;
 }
+.tabs-panel {
+	padding-top: 10px;
+}

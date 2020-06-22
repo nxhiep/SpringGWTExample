@@ -1,5 +1,7 @@
 package com.spring.gwt.client.activities.basic;
 
+import org.gwtbootstrap3.client.ui.TabListItem;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -24,6 +26,7 @@ public class BasicViewImpl extends Composite implements BasicView {
 		@UiField protected HTMLPanel mainPanel;
 		@UiField protected HeaderPanel headerPanel;
 		@UiField protected FlowPanel contentPanel;
+		@UiField protected TabListItem buttonHome, buttonProducts, buttonSettings, buttonProcess;
 		private BasicViewImpl basicViewImpl;
 		
 		public BasicLayout(BasicViewImpl basicViewImpl) {
@@ -45,6 +48,22 @@ public class BasicViewImpl extends Composite implements BasicView {
 		public FlowPanel getContentPanel() {
 			return contentPanel;
 		}
+		
+		public TabListItem getButtonHome() {
+			return buttonHome;
+		}
+		
+		public TabListItem getButtonProducts() {
+			return buttonProducts;
+		}
+		
+		public TabListItem getButtonSettings() {
+			return buttonSettings;
+		}
+		
+		public TabListItem getButtonProcess() {
+			return buttonProcess;
+		}
 	}
 	
 	public BasicViewImpl() {
@@ -55,6 +74,14 @@ public class BasicViewImpl extends Composite implements BasicView {
 	protected void setView(Widget widget) {
 		getBasicLayout().getContentPanel().clear();
 		getBasicLayout().getContentPanel().add(widget);
+	}
+	
+	protected void setActiveTab(TabListItem button) {
+		this.getBasicLayout().getButtonHome().setActive(false);
+		this.getBasicLayout().getButtonProducts().setActive(false);
+		this.getBasicLayout().getButtonSettings().setActive(false);
+		this.getBasicLayout().getButtonProcess().setActive(false);
+		button.setActive(true);
 	}
 	
 	@Override

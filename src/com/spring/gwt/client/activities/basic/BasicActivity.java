@@ -15,6 +15,10 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.spring.gwt.client.ClientData;
 import com.spring.gwt.client.LoginManager;
 import com.spring.gwt.client.activities.ClientFactory;
+import com.spring.gwt.client.activities.home.HomePlace;
+import com.spring.gwt.client.activities.products.ProductsPlace;
+import com.spring.gwt.client.activities.progress.ProgressPlace;
+import com.spring.gwt.client.activities.settings.SettingsPlace;
 import com.spring.gwt.client.activities.view.Toaster;
 
 public class BasicActivity extends AbstractActivity {
@@ -82,6 +86,34 @@ public class BasicActivity extends AbstractActivity {
 						Window.Location.reload();
 					}
 				});
+			}
+		}));
+		addHandlerRegistration(view.getBasicLayout().getButtonHome().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				goTo(new HomePlace());
+			}
+		}));
+		addHandlerRegistration(view.getBasicLayout().getButtonProducts().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				goTo(new ProductsPlace());
+			}
+		}));
+		addHandlerRegistration(view.getBasicLayout().getButtonSettings().addClickHandler(new ClickHandler() {
+					
+			@Override
+			public void onClick(ClickEvent event) {
+				goTo(new SettingsPlace());
+			}
+		}));
+		addHandlerRegistration(view.getBasicLayout().getButtonProcess().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				goTo(new ProgressPlace());
 			}
 		}));
 	}
