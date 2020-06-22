@@ -1,4 +1,4 @@
-package com.spring.gwt.client.activities.view;
+package com.spring.gwt.client.view;
 
 import org.gwtbootstrap3.client.ui.Modal;
 

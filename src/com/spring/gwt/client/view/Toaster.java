@@ -1,4 +1,4 @@
-package com.spring.gwt.client.activities.view;
+package com.spring.gwt.client.view;
 
 import org.gwtbootstrap3.client.ui.constants.IconType;
 import org.gwtbootstrap3.extras.notify.client.constants.NotifyPlacement;

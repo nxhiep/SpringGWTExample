@@ -19,7 +19,7 @@ import com.spring.gwt.client.activities.home.HomePlace;
 import com.spring.gwt.client.activities.products.ProductsPlace;
 import com.spring.gwt.client.activities.progress.ProgressPlace;
 import com.spring.gwt.client.activities.settings.SettingsPlace;
-import com.spring.gwt.client.activities.view.Toaster;
+import com.spring.gwt.client.view.Toaster;
 
 public class BasicActivity extends AbstractActivity {
 

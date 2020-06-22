@@ -15,7 +15,9 @@ public class Product implements IBasic {
 	@Id private Long id;
 	private String name = Config.TEXT_EMPTY;
 	private String description = Config.TEXT_EMPTY;
+	private String note = Config.TEXT_EMPTY;
 	private List<String> imageUrls = new ArrayList<String>();
+	@Index private String userId = Config.TEXT_EMPTY;
 	@Index private Long lastUpdate;
 	@Index private Long createDate;
 	
@@ -69,5 +71,21 @@ public class Product implements IBasic {
 
 	public void setImageUrls(List<String> imageUrls) {
 		this.imageUrls = imageUrls;
+	}
+	
+	public String getNote() {
+		return note;
+	}
+	
+	public void setNote(String note) {
+		this.note = note;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

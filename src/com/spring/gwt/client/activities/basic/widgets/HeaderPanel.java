@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.spring.gwt.client.LoginManager;
-import com.spring.gwt.client.activities.view.AvatarPanel;
+import com.spring.gwt.client.view.AvatarPanel;
 
 public class HeaderPanel extends Composite {
 

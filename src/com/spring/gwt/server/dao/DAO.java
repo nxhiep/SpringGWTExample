@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.spring.gwt.shared.Config;
 import com.spring.gwt.shared.model.IBasic;
 
 public class DAO {
@@ -13,31 +14,39 @@ public class DAO {
 
 	public IBasic save(IBasic iBasic) {
 		long currentTime = new Date().getTime();
+		Object id = iBasic.getId();
+		boolean checkNewObject = (id instanceof Long && (Long) id > Config.LONG_NULL) 
+				|| (id instanceof Integer && (Integer) id > Config.INT_NULL)
+				|| (id instanceof Double && (Double) id > Config.LONG_NULL);
+		if(id == null || checkNewObject) {
+			iBasic.setCreateDate(currentTime);
+		}
 		iBasic.setLastUpdate(currentTime);
-		iBasic.setCreateDate(currentTime);
 		ofy().save().entity(iBasic).now();
 		return iBasic;
 	}
 	
 	public List<IBasic> saves(List<IBasic> iBasics) {
+		long currentTime = new Date().getTime();
 		for (IBasic iBasic : iBasics) {
-			save(iBasic);
+			Object id = iBasic.getId();
+			boolean checkNewObject = (id instanceof Long && (Long) id > Config.LONG_NULL) 
+				|| (id instanceof Integer && (Integer) id > Config.INT_NULL)
+				|| (id instanceof Double && (Double) id > Config.LONG_NULL);
+			if(id == null || checkNewObject) {
+				iBasic.setCreateDate(currentTime);
+			}
+			iBasic.setLastUpdate(currentTime);
 		}
 		ofy().save().entity(iBasics).now();
 		return iBasics;
 	}
 	
-	public IBasic update(IBasic iBasic) {
-		iBasic.setLastUpdate(new Date().getTime());
-		ofy().save().entity(iBasic).now();
-		return iBasic;
+	public void delete(IBasic iBasic) {
+		ofy().delete().entity(iBasic);
 	}
 	
-	public List<IBasic> updates(List<IBasic> iBasics) {
-		for (IBasic iBasic : iBasics) {
-			update(iBasic);
-		}
-		ofy().save().entities(iBasics).now();
-		return iBasics;
+	public void deletes(List<IBasic> iBasics) {
+		ofy().delete().entities(iBasics);
 	}
 }

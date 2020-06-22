@@ -17,6 +17,8 @@ import com.spring.gwt.shared.model.UserInfo;
 
 public class SpringGWTBasic implements EntryPoint {
 	
+	public static ClientFactory CLIENT_FACTORY = new ClientFactoryImpl();
+	
 	public void onModuleLoad() {
 		ClientData.prepareData();
 		ClientData.loginFromSession(new AsyncCallback<UserInfo>() {
@@ -34,15 +36,14 @@ public class SpringGWTBasic implements EntryPoint {
 	}
 
 	protected void onLoadedUserData() {
-		ClientFactory clientFactory = new ClientFactoryImpl();
 		SimplePanel display = new SimplePanel();
 		display.setSize("100%", "100%");
-		AsyncActivityMapper activityMapper = new AppActivityMapper(clientFactory);
-		AsyncActivityManager activityManager = new AsyncActivityManager(activityMapper, clientFactory.getEventBus());
+		AsyncActivityMapper activityMapper = new AppActivityMapper(CLIENT_FACTORY);
+		AsyncActivityManager activityManager = new AsyncActivityManager(activityMapper, CLIENT_FACTORY.getEventBus());
 		activityManager.setDisplay(display);
 		AppPlaceHistoryMapper historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 		PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(historyMapper);
-		historyHandler.register(clientFactory.getPlaceController(), clientFactory.getEventBus(), new HomePlace());
+		historyHandler.register(CLIENT_FACTORY.getPlaceController(), CLIENT_FACTORY.getEventBus(), new HomePlace());
 		historyHandler.handleCurrentHistory();
 		RootPanel.get("content").add(display);
 	}

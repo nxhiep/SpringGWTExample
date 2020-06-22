@@ -1,4 +1,4 @@
-package com.spring.gwt.client.activities.view;
+package com.spring.gwt.client.view;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.user.client.ui.FlowPanel;

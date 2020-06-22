@@ -23,6 +23,9 @@ public class Config {
 	public static final int LOGIN_ACCOUNT_NOT_ACTIVATED = 5;
 	public static final int LOGIN_MOBILE_IS_USED = 6;
 	
+	public static final String DATE_FORMAT_FULL = "dd/MM/yyyy hh:mm:ss";
+	public static final String DATE_FORMAT_DATE = "dd/MM/yyyy";
+
 	public static final String ADMIN_PASSWORD = "abc@123";
 	
 	public static final int DEFAULT_EXPIRED_TIME = 30;
