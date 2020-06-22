@@ -4,6 +4,7 @@ public class Config {
 	public static final String TEXT_EMPTY = "";
 	public static final long LONG_NULL = -1;
 	public static final int INT_NULL = -1;
+	public static final long NULL_ID = -1l;
 	
 	public static final int STATUS_DELETED = -1;
 	public static final int STATUS_PRIVATE = 0;
