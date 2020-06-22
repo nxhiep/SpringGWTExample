@@ -94,6 +94,7 @@ public class ProductsActivity extends BasicActivity {
 					
 					@Override
 					public void onSuccess(Void result) {
+						loadData();
 						myDialog.hide();
 					}
 					

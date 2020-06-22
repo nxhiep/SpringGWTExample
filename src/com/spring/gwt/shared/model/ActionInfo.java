@@ -7,7 +7,7 @@ import com.googlecode.objectify.annotation.Index;
 import com.spring.gwt.shared.Config;
 
 @Entity
-public class Action implements IBasic {
+public class ActionInfo implements IBasic {
 	@Ignore private static final long serialVersionUID = 1L;
 	@Id private Long id;
 	@Index private String code = Config.TEXT_EMPTY;
@@ -20,7 +20,7 @@ public class Action implements IBasic {
 	@Index private Long lastUpdate;
 	@Index private Long createDate;
 	
-	public Action() {
+	public ActionInfo() {
 	}
 
 	public Long getId() {

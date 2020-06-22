@@ -10,10 +10,11 @@ import com.googlecode.objectify.annotation.Index;
 import com.spring.gwt.shared.Config;
 
 @Entity
-public class Activitty implements IBasic {
+public class ActivityInfo implements IBasic {
 	@Ignore private static final long serialVersionUID = 1L;
 	@Id private Long id;
 	private String name = Config.TEXT_EMPTY;
+	private String description = Config.TEXT_EMPTY;
 	private double tm = Config.LONG_NULL;
 	private double tp = Config.LONG_NULL;
 	private List<Long> actionIds = new ArrayList<Long>();
@@ -21,7 +22,7 @@ public class Activitty implements IBasic {
 	@Index private Long lastUpdate;
 	@Index private Long createDate;
 	
-	public Activitty() {
+	public ActivityInfo() {
 	}
 
 	public Long getId() {
@@ -88,5 +89,13 @@ public class Activitty implements IBasic {
 
 	public Long getLastUpdate() {
 		return lastUpdate;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

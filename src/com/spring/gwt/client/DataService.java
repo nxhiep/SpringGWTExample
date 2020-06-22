@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+import com.spring.gwt.shared.model.ActionInfo;
+import com.spring.gwt.shared.model.ActivityInfo;
 import com.spring.gwt.shared.model.IBasic;
 import com.spring.gwt.shared.model.Product;
 import com.spring.gwt.shared.model.UserInfo;
@@ -27,4 +29,8 @@ public interface DataService extends RemoteService {
 	void deletes(List<IBasic> iBasics);
 
 	List<Product> getAllProducts();
+
+	List<ActivityInfo> getActivities();
+
+	List<ActionInfo> getActions();
 }

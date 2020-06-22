@@ -3,6 +3,8 @@ package com.spring.gwt.client;
 import java.util.List;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.spring.gwt.shared.model.ActionInfo;
+import com.spring.gwt.shared.model.ActivityInfo;
 import com.spring.gwt.shared.model.IBasic;
 import com.spring.gwt.shared.model.Product;
 import com.spring.gwt.shared.model.UserInfo;
@@ -25,4 +27,8 @@ public interface DataServiceAsync {
 	void deletes(List<IBasic> iBasics, AsyncCallback<Void> callback);
 
 	void getAllProducts(AsyncCallback<List<Product>> callback);
+
+	void getActivities(AsyncCallback<List<ActivityInfo>> callback);
+
+	void getActions(AsyncCallback<List<ActionInfo>> callback);
 }

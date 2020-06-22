@@ -4,8 +4,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.spring.gwt.shared.model.Action;
-import com.spring.gwt.shared.model.Activitty;
+import com.spring.gwt.shared.model.ActionInfo;
+import com.spring.gwt.shared.model.ActivityInfo;
 import com.spring.gwt.shared.model.ClusterStructure;
 import com.spring.gwt.shared.model.Consumable;
 import com.spring.gwt.shared.model.ConsumableInput;
@@ -23,8 +23,8 @@ public class MyContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		ObjectifyService.register(Action.class);
-		ObjectifyService.register(Activitty.class);
+		ObjectifyService.register(ActionInfo.class);
+		ObjectifyService.register(ActivityInfo.class);
 		ObjectifyService.register(ClusterStructure.class);
 		ObjectifyService.register(Consumable.class);
 		ObjectifyService.register(ConsumableInput.class);

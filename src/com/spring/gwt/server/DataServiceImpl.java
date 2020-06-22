@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.spring.gwt.client.DataService;
 import com.spring.gwt.server.dao.ProductDAO;
+import com.spring.gwt.server.dao.SettingDAO;
 import com.spring.gwt.server.dao.UserDAO;
+import com.spring.gwt.shared.model.ActionInfo;
+import com.spring.gwt.shared.model.ActivityInfo;
 import com.spring.gwt.shared.model.IBasic;
 import com.spring.gwt.shared.model.Product;
 import com.spring.gwt.shared.model.UserInfo;
@@ -17,6 +20,7 @@ public class DataServiceImpl extends CustomRemoteServiceServlet implements DataS
 
 	protected UserDAO USER_DAO = new UserDAO();
 	protected ProductDAO PRODUCT_DAO = new ProductDAO();
+	protected SettingDAO SETTING_DAO = new SettingDAO();
 	
 	@Override
 	public IBasic save(IBasic iBasic) {
@@ -51,5 +55,15 @@ public class DataServiceImpl extends CustomRemoteServiceServlet implements DataS
 	@Override
 	public List<Product> getAllProducts() {
 		return PRODUCT_DAO.getAllProducts();
+	}
+
+	@Override
+	public List<ActivityInfo> getActivities() {
+		return SETTING_DAO.getActivities();
+	}
+	
+	@Override
+	public List<ActionInfo> getActions() {
+		return SETTING_DAO.getActions();
 	}
 }

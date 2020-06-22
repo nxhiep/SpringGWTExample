@@ -50,7 +50,20 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 	
 	@Override
 	public void view(List<Product> products) {
-		cellTableView.setData(new ArrayList<IBasic>(products));
+		List<IBasic> iBasics = new ArrayList<IBasic>(products);
+		cellTableView.setData(iBasics);
+		cellTableView.addColumn(cellTableView.getCellTable(), 40, new TextCell(), "STT", new GetValue<String>() {
+
+			@Override
+			public String getValue(IBasic iBasic) {
+				return (iBasics.indexOf(iBasic) + 1) + "";
+			}
+			
+		}, new FieldUpdater<IBasic, String>() {
+			@Override
+			public void update(final int index, IBasic object, String value) {
+			}
+	    });
 		cellTableView.addColumn(cellTableView.getCellTable(), 150, new TextCell(), "Tên sản phẩm", new GetValue<String>() {
 
 			@Override
