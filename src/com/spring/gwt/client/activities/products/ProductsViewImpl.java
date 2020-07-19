@@ -29,9 +29,9 @@ import com.spring.gwt.shared.model.Product;
 
 public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 
-	private static BasicViewImplUiBinder uiBinder = GWT.create(BasicViewImplUiBinder.class);
+	private static ProductsViewImplUiBinder uiBinder = GWT.create(ProductsViewImplUiBinder.class);
 
-	interface BasicViewImplUiBinder extends UiBinder<Widget, ProductsViewImpl> {
+	interface ProductsViewImplUiBinder extends UiBinder<Widget, ProductsViewImpl> {
 	}
 	
 	@UiField FlowPanel contentPanel;
@@ -94,7 +94,21 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 			public void update(final int index, IBasic object, String value) {
 			}
 	    });
-		cellTableView.addColumn(cellTableView.getCellTable(), 100, new TextCell(), "Ghi chú", new GetValue<String>() {
+		/*
+		cellTableView.addColumn(cellTableView.getCellTable(), 100, new TextCell(new SafeHtmlRenderer<String>() {
+			
+			@Override
+			public void render(String html, SafeHtmlBuilder builder) {
+				builder.appendHtmlConstant(html);
+			}
+			
+			@Override
+			public SafeHtml render(String html) {
+				SafeHtmlBuilder builder = new SafeHtmlBuilder();
+				builder.appendHtmlConstant(html);
+				return builder.toSafeHtml();
+			}
+		}), "Ghi chú", new GetValue<String>() {
 
 			@Override
 			public String getValue(IBasic iBasic) {
@@ -109,6 +123,7 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 			public void update(final int index, IBasic object, String value) {
 			}
 	    });
+	    */
 		cellTableView.addColumn(cellTableView.getCellTable(), 80, new ClickableTextCell(), "Chi tiết", new GetValue<String>() {
 
 			@Override

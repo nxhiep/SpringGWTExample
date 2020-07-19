@@ -1,4 +1,4 @@
-package com.spring.gwt.client.activities.progress;
+package com.spring.gwt.client.activities.process;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
@@ -6,11 +6,11 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.basic.BasicActivity;
 
-public class ProgressActivity extends BasicActivity {
+public class ProcessActivity extends BasicActivity {
 	
-	private ProgressView view;
+	private ProcessView view;
 	
-	public ProgressActivity(Place place, ClientFactory clientFactory) {
+	public ProcessActivity(Place place, ClientFactory clientFactory) {
 		super(place, clientFactory);
 	}
 	

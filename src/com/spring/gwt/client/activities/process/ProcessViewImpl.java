@@ -1,18 +1,18 @@
-package com.spring.gwt.client.activities.progress;
+package com.spring.gwt.client.activities.process;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Widget;
 import com.spring.gwt.client.activities.basic.BasicViewImpl;
 
-public class ProgressViewImpl extends BasicViewImpl implements ProgressView {
+public class ProcessViewImpl extends BasicViewImpl implements ProcessView {
 
-	private static BasicViewImplUiBinder uiBinder = GWT.create(BasicViewImplUiBinder.class);
+	private static ProcessViewImplUiBinder uiBinder = GWT.create(ProcessViewImplUiBinder.class);
 
-	interface BasicViewImplUiBinder extends UiBinder<Widget, ProgressViewImpl> {
+	interface ProcessViewImplUiBinder extends UiBinder<Widget, ProcessViewImpl> {
 	}
 	
-	public ProgressViewImpl() {
+	public ProcessViewImpl() {
 		super();
 		setView(uiBinder.createAndBindUi(this));
 		setActiveTab(this.getBasicLayout().getButtonProcess());

@@ -31,9 +31,9 @@ import com.spring.gwt.shared.model.IBasic;
 
 public class SettingsViewImpl extends BasicViewImpl implements SettingsView {
 
-	private static BasicViewImplUiBinder uiBinder = GWT.create(BasicViewImplUiBinder.class);
+	private static SettingsViewImplUiBinder uiBinder = GWT.create(SettingsViewImplUiBinder.class);
 
-	interface BasicViewImplUiBinder extends UiBinder<Widget, SettingsViewImpl> {
+	interface SettingsViewImplUiBinder extends UiBinder<Widget, SettingsViewImpl> {
 	}
 	
 	@UiField FlowPanel activitiesPanel, actionsPanel;

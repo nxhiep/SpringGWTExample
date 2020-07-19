@@ -10,12 +10,10 @@
 		<w:HeaderPanel ui:field="headerPanel"></w:HeaderPanel>
 		<div class="body-panel">
 			<div class="tabs-panel container">
-				<b:NavTabs>
-					<b:TabListItem ui:field="buttonHome" text="Trang chủ" icon="HOME"/>
-					<b:TabListItem ui:field="buttonProducts" text="Sản phẩm" icon="PRODUCT_HUNT"/>
-					<b:TabListItem ui:field="buttonSettings" text="Cài đặt" icon="COGS"/>
-					<b:TabListItem ui:field="buttonProcess" text="Tiến trình" icon="LINE_CHART"/>
-				</b:NavTabs>
+				<b:Button ui:field="buttonHome" text="Trang chủ" icon="HOME"></b:Button>
+				<b:Button ui:field="buttonProducts" text="Sản phẩm" icon="PRODUCT_HUNT"></b:Button>
+				<b:Button ui:field="buttonSettings" text="Cài đặt" icon="COGS"></b:Button>
+				<b:Button ui:field="buttonProcess" text="Tiến trình" icon="LINE_CHART"></b:Button>
 			</div>
 			<g:FlowPanel ui:field="contentPanel" styleName="container"></g:FlowPanel>
 		</div>

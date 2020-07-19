@@ -16,8 +16,8 @@ import com.spring.gwt.client.ClientData;
 import com.spring.gwt.client.LoginManager;
 import com.spring.gwt.client.activities.ClientFactory;
 import com.spring.gwt.client.activities.home.HomePlace;
+import com.spring.gwt.client.activities.process.ProcessPlace;
 import com.spring.gwt.client.activities.products.ProductsPlace;
-import com.spring.gwt.client.activities.progress.ProgressPlace;
 import com.spring.gwt.client.activities.settings.SettingsPlace;
 import com.spring.gwt.client.view.Toaster;
 
@@ -113,7 +113,7 @@ public class BasicActivity extends AbstractActivity {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				goTo(new ProgressPlace());
+				goTo(new ProcessPlace());
 			}
 		}));
 	}

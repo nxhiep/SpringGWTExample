@@ -11,12 +11,12 @@ import com.spring.gwt.client.activities.consumable.type.ConsumableTypeView;
 import com.spring.gwt.client.activities.consumable.type.ConsumableTypeViewImpl;
 import com.spring.gwt.client.activities.home.HomeView;
 import com.spring.gwt.client.activities.home.HomeViewImpl;
+import com.spring.gwt.client.activities.process.ProcessView;
+import com.spring.gwt.client.activities.process.ProcessViewImpl;
 import com.spring.gwt.client.activities.products.ProductsView;
 import com.spring.gwt.client.activities.products.ProductsViewImpl;
 import com.spring.gwt.client.activities.products.details.ProductDetailsView;
 import com.spring.gwt.client.activities.products.details.ProductDetailsViewImpl;
-import com.spring.gwt.client.activities.progress.ProgressView;
-import com.spring.gwt.client.activities.progress.ProgressViewImpl;
 import com.spring.gwt.client.activities.settings.SettingsView;
 import com.spring.gwt.client.activities.settings.SettingsViewImpl;
 
@@ -70,8 +70,8 @@ public class ClientFactoryImpl implements ClientFactory {
 	}
 
 	@Override
-	public ProgressView getProgressView() {
-		return new ProgressViewImpl();
+	public ProcessView getProgressView() {
+		return new ProcessViewImpl();
 	}
 
 	@Override

@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.spring.gwt.shared.model.UserInfo;
+
 @Controller
 public class HomeController extends BasicController {
 
 //	PAGE
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model, HttpServletRequest request, HttpServletResponse response) {
-		getCurrentUserInfoBySession(model, response, request);
+		UserInfo currerntUser = getCurrentUserInfoBySession(model, response, request);
+		if(currerntUser == null) {
+			return "login";
+		}
 		return "home";
 	}
 

@@ -1,6 +1,7 @@
 package com.spring.gwt.client.activities.basic;
 
-import org.gwtbootstrap3.client.ui.TabListItem;
+import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.constants.ButtonType;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
@@ -26,11 +27,10 @@ public class BasicViewImpl extends Composite implements BasicView {
 		@UiField protected HTMLPanel mainPanel;
 		@UiField protected HeaderPanel headerPanel;
 		@UiField protected FlowPanel contentPanel;
-		@UiField protected TabListItem buttonHome, buttonProducts, buttonSettings, buttonProcess;
+		@UiField protected Button buttonHome, buttonProducts, buttonSettings, buttonProcess;
 		private BasicViewImpl basicViewImpl;
 		
-		public BasicLayout(BasicViewImpl basicViewImpl) {
-			this.basicViewImpl = basicViewImpl;
+		public BasicLayout() {
 		}
 		
 		public HTMLPanel getMainPanel() {
@@ -49,25 +49,25 @@ public class BasicViewImpl extends Composite implements BasicView {
 			return contentPanel;
 		}
 		
-		public TabListItem getButtonHome() {
+		public Button getButtonHome() {
 			return buttonHome;
 		}
 		
-		public TabListItem getButtonProducts() {
+		public Button getButtonProducts() {
 			return buttonProducts;
 		}
 		
-		public TabListItem getButtonSettings() {
+		public Button getButtonSettings() {
 			return buttonSettings;
 		}
 		
-		public TabListItem getButtonProcess() {
+		public Button getButtonProcess() {
 			return buttonProcess;
 		}
 	}
 	
 	public BasicViewImpl() {
-		this.basicLayout = new BasicLayout(this);
+		this.basicLayout = new BasicLayout();
 		initWidget(uiBinder.createAndBindUi(this.basicLayout));
 	}
 	
@@ -76,12 +76,17 @@ public class BasicViewImpl extends Composite implements BasicView {
 		getBasicLayout().getContentPanel().add(widget);
 	}
 	
-	protected void setActiveTab(TabListItem button) {
+	protected void setActiveTab(Button button) {
 		this.getBasicLayout().getButtonHome().setActive(false);
+		this.getBasicLayout().getButtonHome().setType(ButtonType.DEFAULT);
 		this.getBasicLayout().getButtonProducts().setActive(false);
+		this.getBasicLayout().getButtonProducts().setType(ButtonType.DEFAULT);
 		this.getBasicLayout().getButtonSettings().setActive(false);
+		this.getBasicLayout().getButtonSettings().setType(ButtonType.DEFAULT);
 		this.getBasicLayout().getButtonProcess().setActive(false);
+		this.getBasicLayout().getButtonProcess().setType(ButtonType.DEFAULT);
 		button.setActive(true);
+		button.setType(ButtonType.PRIMARY);
 	}
 	
 	@Override
@@ -96,6 +101,11 @@ public class BasicViewImpl extends Composite implements BasicView {
 	@Override
 	public void setEventBus(EventBus eventBus) {
 		this.eventBus = eventBus;
+	}
+	
+	@Override
+	public EventBus getEventBus() {
+		return eventBus;
 	}
 	
 	@Override

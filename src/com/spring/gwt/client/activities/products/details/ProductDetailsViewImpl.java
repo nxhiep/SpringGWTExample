@@ -7,9 +7,9 @@ import com.spring.gwt.client.activities.basic.BasicViewImpl;
 
 public class ProductDetailsViewImpl extends BasicViewImpl implements ProductDetailsView {
 
-	private static BasicViewImplUiBinder uiBinder = GWT.create(BasicViewImplUiBinder.class);
+	private static ProductDetailsViewImplUiBinder uiBinder = GWT.create(ProductDetailsViewImplUiBinder.class);
 
-	interface BasicViewImplUiBinder extends UiBinder<Widget, ProductDetailsViewImpl> {
+	interface ProductDetailsViewImplUiBinder extends UiBinder<Widget, ProductDetailsViewImpl> {
 	}
 	
 	public ProductDetailsViewImpl() {

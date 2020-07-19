@@ -7,9 +7,9 @@ import com.spring.gwt.client.activities.basic.BasicViewImpl;
 
 public class HomeViewImpl extends BasicViewImpl implements HomeView {
 
-	private static BasicViewImplUiBinder uiBinder = GWT.create(BasicViewImplUiBinder.class);
+	private static HomeViewImplUiBinder uiBinder = GWT.create(HomeViewImplUiBinder.class);
 
-	interface BasicViewImplUiBinder extends UiBinder<Widget, HomeViewImpl> {
+	interface HomeViewImplUiBinder extends UiBinder<Widget, HomeViewImpl> {
 	}
 	
 	public HomeViewImpl() {

@@ -15,4 +15,6 @@ public interface BasicView extends IsWidget {
 
 	HeaderPanel getHeaderPanel();
 
+	EventBus getEventBus();
+
 }
