@@ -22,10 +22,34 @@
 			background: none;
 			border: none;
 			outline: none;
-			color: blue;
+			color: #3F51B5;
+			margin: 0 auto;
 			}
 			.button-anchor:hover {
 			text-decoration: underline;
+			}
+			.login-center-panel label {
+		    margin: 0;
+		    width: 100px;
+			}
+			.login-center-panel .item {
+		    display: flex;
+		    align-items: center;
+		    margin-bottom: 10px;
+			}
+			.login-center-panel .item.item-title {
+			font-weight: bold;
+			font-size: 1.2em;
+			margin-bottom: 10px
+			}
+			.login-center-panel input {
+		    border: 1px solid #ddd;
+		    padding: 7px;
+		    border-radius: 3px;
+		    width: 200px;
+			}
+			.login-center-panel .button-login {
+		    margin: 10px auto 0 auto;
 			}
 		</style>
 	</head>
@@ -33,7 +57,7 @@
 	<div class="main-panel flex flex-ai-center flex-jc-center">
 		<div class="login-center-panel">
 			<div id="login-panel" style="display:none;">
-				<div class="item">
+				<div class="item item-title">
 					ĐĂNG NHẬP
 				</div>
 				<div class="item">
@@ -42,7 +66,7 @@
 					name="log-account" 
 					id="log-account"
 					placeholder="Tài khoản (*)" type="text" 
-					autocomplete="name" 
+					autocomplete="username" 
 					>
 				</div>
 				<div class="item">
@@ -52,12 +76,12 @@
 					id="log-password"
 					placeholder="Mật khẩu (*)"
 					type="password" 
-					autocomplete="name" 
+					autocomplete="new-password" 
 					onkeydown="if(event.keyCode == 13){onLogin('#button-login');return false;}"
 					>
 				</div>
 				<div class="item">
-					<button id="button-login" onclick="onLogin(this)" class="button-login">Đăng nhập</button>
+					<button id="button-login" onclick="onLogin(this)" class="button-login btn btn-success">Đăng nhập</button>
 <!-- 					<button onclick="onLoginFacebook(this)" class="button-facebook">Đăng nhập Facebook</button> -->
 				</div>
 				<div class="item">
@@ -65,7 +89,7 @@
 				</div>
 			</div>
 			<div id="register-panel" style="display:none;">
-				<div class="item">
+				<div class="item item-title">
 					ĐĂNG KÝ
 				</div>
 				<div class="item">
@@ -74,7 +98,7 @@
 					name="res-account" 
 					id="res-account"
 					placeholder="Tài khoản (*)" type="text" 
-					autocomplete="name" 
+					autocomplete="username" 
 					>
 				</div>
 				<div class="item">
@@ -92,7 +116,7 @@
 					name="res-phone-number" 
 					id="res-phone-number"
 					placeholder="Số điện thoại" type="text" 
-					autocomplete="tel" 
+					autocomplete="mobile" 
 					>
 				</div>
 				<div class="item">
@@ -102,7 +126,7 @@
 					id="res-password"
 					placeholder="Mật khẩu (*)" 
 					type="password" 
-					autocomplete="name" 
+					autocomplete="new-password" 
 					>
 				</div>
 				<div class="item">
@@ -112,11 +136,11 @@
 					id="res-repassword"
 					placeholder="Nhập lại mật khẩu (*)"
 					type="password" 
-					autocomplete="name" 
+					autocomplete="new-password" 
 					>
 				</div>
 				<div class="item">
-					<button onclick="onRegister(this)" class="button-login">Đăng ký</button>
+					<button onclick="onRegister(this)" class="button-login btn btn-success">Đăng ký</button>
 <!-- 					<button onclick="onLoginFacebook(this)" class="button-facebook">Đăng nhập Facebook</button> -->
 				</div>
 				<div class="item">
