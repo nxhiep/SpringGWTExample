@@ -1,5 +1,5 @@
 function onLogin(button) {
-	let loginDialog = $('#login-dialog');
+	let loginDialog = $('#login-panel');
 	let account = loginDialog.find('#log-account').val();
 	let password = loginDialog.find('#log-password').val();
 	
@@ -20,7 +20,7 @@ function onLogin(button) {
 }
 
 function onRegister(button) {
-	let loginDialog = $('#register-dialog');
+	let loginDialog = $('#register-panel');
 	let account = loginDialog.find('#res-account').val();
 	let email = loginDialog.find('#res-email').val();
 	let phoneNumber = loginDialog.find('#res-phone-number').val();

@@ -45,3 +45,14 @@ body {
     display: block;
     padding: 7px;
 }
+.tabs-panel {
+	padding-top: 10px;
+}
+
+.dropdown-menu .dropdown-item {
+	width: 100%;
+	display: block;
+	border: none;
+	background: white;
+	padding: 7px 10px;
+}
