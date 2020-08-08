@@ -8,26 +8,26 @@
 	
 	</ui:style>
 	<g:HTMLPanel>
-		<div class="row">
+		<div class="row item">
 			<div class="col-xs-12 col-sm-6">
 				<label>Tên sản phẩm</label>
 				<b:TextBox ui:field="nameBox"></b:TextBox>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row item">
 			<div class="col-xs-12">
 				<label>Ảnh sản phẩm</label>
-				<b:Button text="Tải ảnh"></b:Button>
+				<v:UploaderPanel ui:field="uploadPanel"></v:UploaderPanel>
 				<g:FlowPanel ui:field="imagesPanel"></g:FlowPanel>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row item">
 			<div class="col-xs-12">
 				<label>Mô tả</label>
 				<b:TextArea ui:field="descriptionBox"></b:TextArea>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row item">
 			<div class="col-xs-12">
 				<label>Ghi chú</label>
 				<v:CKEditor ui:field="noteEditor"></v:CKEditor>

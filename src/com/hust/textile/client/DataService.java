@@ -7,7 +7,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.hust.textile.shared.model.ActionInfo;
 import com.hust.textile.shared.model.ActivityInfo;
 import com.hust.textile.shared.model.IBasic;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 import com.hust.textile.shared.model.UserInfo;
 
 /**
@@ -28,9 +28,11 @@ public interface DataService extends RemoteService {
 
 	void deletes(List<IBasic> iBasics);
 
-	List<Product> getAllProducts();
+	List<ProductInfo> getAllProducts();
 
 	List<ActivityInfo> getActivities();
 
 	List<ActionInfo> getActions();
+
+	ProductInfo getProductInfo(Long productId);
 }

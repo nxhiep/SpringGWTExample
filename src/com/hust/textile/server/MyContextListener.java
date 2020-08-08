@@ -10,7 +10,7 @@ import com.hust.textile.shared.model.ClusterStructure;
 import com.hust.textile.shared.model.Consumable;
 import com.hust.textile.shared.model.ConsumableInput;
 import com.hust.textile.shared.model.ConsumableOutput;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 import com.hust.textile.shared.model.ProductMaterial;
 import com.hust.textile.shared.model.RoadTextTure;
 import com.hust.textile.shared.model.UserInfo;
@@ -29,7 +29,7 @@ public class MyContextListener implements ServletContextListener {
 		ObjectifyService.register(Consumable.class);
 		ObjectifyService.register(ConsumableInput.class);
 		ObjectifyService.register(ConsumableOutput.class);
-		ObjectifyService.register(Product.class);
+		ObjectifyService.register(ProductInfo.class);
 		ObjectifyService.register(ProductMaterial.class);
 		ObjectifyService.register(ProductMaterial.class);
 		ObjectifyService.register(RoadTextTure.class);

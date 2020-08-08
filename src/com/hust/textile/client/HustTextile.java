@@ -20,6 +20,7 @@ public class HustTextile implements EntryPoint {
 	public static ClientFactory CLIENT_FACTORY = new ClientFactoryImpl();
 	
 	public void onModuleLoad() {
+		ClientUtils.importCSS("/resources/css/gwt.css");
 		ClientData.prepareData();
 		ClientData.loginFromSession(new AsyncCallback<UserInfo>() {
 			

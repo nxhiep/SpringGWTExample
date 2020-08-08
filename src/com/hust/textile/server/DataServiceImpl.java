@@ -9,7 +9,7 @@ import com.hust.textile.server.dao.UserDAO;
 import com.hust.textile.shared.model.ActionInfo;
 import com.hust.textile.shared.model.ActivityInfo;
 import com.hust.textile.shared.model.IBasic;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 import com.hust.textile.shared.model.UserInfo;
 
 /**
@@ -53,7 +53,7 @@ public class DataServiceImpl extends CustomRemoteServiceServlet implements DataS
 	}
 	
 	@Override
-	public List<Product> getAllProducts() {
+	public List<ProductInfo> getAllProducts() {
 		return PRODUCT_DAO.getAllProducts();
 	}
 
@@ -65,5 +65,10 @@ public class DataServiceImpl extends CustomRemoteServiceServlet implements DataS
 	@Override
 	public List<ActionInfo> getActions() {
 		return SETTING_DAO.getActions();
+	}
+
+	@Override
+	public ProductInfo getProductInfo(Long productId) {
+		return PRODUCT_DAO.getProductInfo(productId);
 	}
 }

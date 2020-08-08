@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.hust.textile.client.view.Toaster;
+import com.hust.textile.shared.Config;
 import com.hust.textile.shared.model.IBasic;
 import com.hust.textile.shared.model.UserInfo;
 
@@ -12,7 +14,10 @@ public class ClientData {
 	public final static DataServiceAsync DATA_SERVICE = GWT.create(DataService.class);
 	
 	public static void prepareData() {
-		
+//		String HOST_DOMAIN = Window.Location.getProtocol() +"//"+ Window.Location.getHost();
+		String HOST_DOMAIN = Config.DOMAIN;
+		ServiceDefTarget dataServiceDef = (ServiceDefTarget) DATA_SERVICE;
+		dataServiceDef.setServiceEntryPoint(HOST_DOMAIN + "/husttextile/data");
 	}
 	
 	public static void loginFromSession(AsyncCallback<UserInfo> callback) {

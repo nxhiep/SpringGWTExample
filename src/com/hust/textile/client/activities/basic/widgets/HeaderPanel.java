@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.hust.textile.client.ClientUtils;
 import com.hust.textile.client.LoginManager;
 import com.hust.textile.client.view.AvatarPanel;
 
@@ -32,6 +33,7 @@ public class HeaderPanel extends Composite {
 
 	public HeaderPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
+		ClientUtils.log("HeaderPanel init");
 		loginPanel.setVisible(!LoginManager.isLogedIn());
 		userPanel.setVisible(LoginManager.isLogedIn());
 		if(LoginManager.isLogedIn()) {

@@ -22,6 +22,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.hust.textile.client.ClientUtils;
@@ -209,5 +210,40 @@ public class MyDialog extends Modal {
 	
 	public ModalBody getBody() {
 		return body;
+	}
+
+	public void showImage(String title, String imageUrl) {
+		Image image = new Image(imageUrl);
+		image.setWidth("100%");
+		show(title, image, "", "Đóng", new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void arg0) {
+				hide();
+			}
+			
+			@Override
+			public void onFailure(Throwable arg0) {
+				hide();
+			}
+		});
+	}
+	
+	public void showQuestion(String question, AsyncCallback<Void> callback) {
+		this.callBack = callback;
+		show(question, null, "Đồng ý", "Huỷ", new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void arg0) {
+				callback.onSuccess(arg0);
+				hide();
+			}
+			
+			@Override
+			public void onFailure(Throwable arg0) {
+				callback.onFailure(arg0);
+				hide();
+			}
+		});
 	}
 }

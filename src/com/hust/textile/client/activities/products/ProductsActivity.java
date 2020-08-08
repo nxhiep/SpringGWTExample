@@ -18,7 +18,7 @@ import com.hust.textile.client.event.ActionEventHandler;
 import com.hust.textile.client.event.ActionEvent.Action;
 import com.hust.textile.client.view.MyDialog;
 import com.hust.textile.shared.model.IBasic;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 
 public class ProductsActivity extends BasicActivity {
 	
@@ -55,9 +55,9 @@ public class ProductsActivity extends BasicActivity {
 			@Override
 			public void onEvent(ActionEvent event) {
 				if(Action.EDIT.equals(event.getAction())) {
-					showUpdateProduct((Product) event.getIBasic());
+					showUpdateProduct((ProductInfo) event.getIBasic());
 				} else if(Action.VIEW.equals(event.getAction())) {
-					goTo(new ProductDetailsPlace((Product) event.getIBasic()));
+					goTo(new ProductDetailsPlace((ProductInfo) event.getIBasic()));
 				} else if(Action.DELETE.equals(event.getAction())) {
 					deleteObject(event.getIBasic());
 				}
@@ -65,7 +65,7 @@ public class ProductsActivity extends BasicActivity {
 		}));
 	}
 	
-	protected void showUpdateProduct(Product product) {
+	protected void showUpdateProduct(ProductInfo product) {
 		CreateProductDialog createProductDialog = view.getCreateProductDialog();
 		createProductDialog.show(product, product != null ? "Sửa " + product.getName() : "Thêm sản phẩm", 
 				new AsyncCallback<Void>() {
@@ -131,10 +131,10 @@ public class ProductsActivity extends BasicActivity {
 	@Override
 	protected void loadData() {
 		super.loadData();
-		ClientData.DATA_SERVICE.getAllProducts(new AsyncCallback<List<Product>>() {
+		ClientData.DATA_SERVICE.getAllProducts(new AsyncCallback<List<ProductInfo>>() {
 			
 			@Override
-			public void onSuccess(List<Product> result) {
+			public void onSuccess(List<ProductInfo> result) {
 				view.view(result);
 			}
 			

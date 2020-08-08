@@ -25,10 +25,22 @@ public class Config {
 	
 	public static final String DATE_FORMAT_FULL = "dd/MM/yyyy hh:mm:ss";
 	public static final String DATE_FORMAT_DATE = "dd/MM/yyyy";
+	
+	public static final String DOMAIN = "https://test-dot-is-soict.appspot.com";
 
 	public static final String ADMIN_PASSWORD = "abc@123";
 	
 	public static final int DEFAULT_EXPIRED_TIME = 30;
+	
+	public static final String BUCKET_NAME = "is-soict.appspot.com";
+	public static final String BUCKET_NAME_FOLDER_IMAGE = "images";
+	public static final String BUCKET_NAME_FOLDER_VIDEO = "videos";
+	public static final String BUCKET_NAME_FOLDER_AUDIO = "audios";
+	public static final String BUCKET_NAME_FOLDER_DOCUMENT = "documents";
+	public static final String BUCKET_NAME_FOLDER_OTHER = "others";
+	
+	public static final String GOOGLE_CLOUD_STORAGE_URL = "https://storage.googleapis.com/";
+	public static int FILE_SIZE_LIMIT = 20 * 1024 * 1024; // 20 MiB
 
 	public static boolean isFileNameImage(String fileName){
 		if(fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".png")

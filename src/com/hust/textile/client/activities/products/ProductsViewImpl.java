@@ -25,7 +25,7 @@ import com.hust.textile.client.event.ActionEvent;
 import com.hust.textile.client.event.ActionEvent.Action;
 import com.hust.textile.client.view.HDropdownCell;
 import com.hust.textile.shared.model.IBasic;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 
 public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 
@@ -49,7 +49,7 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 	}
 	
 	@Override
-	public void view(List<Product> products) {
+	public void view(List<ProductInfo> products) {
 		List<IBasic> iBasics = new ArrayList<IBasic>(products);
 		cellTableView.setData(iBasics);
 		cellTableView.addColumn(cellTableView.getCellTable(), 40, new TextCell(), "STT", new GetValue<String>() {
@@ -64,12 +64,12 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 			public void update(final int index, IBasic object, String value) {
 			}
 	    });
-		cellTableView.addColumn(cellTableView.getCellTable(), 150, new TextCell(), "Tên sản phẩm", new GetValue<String>() {
+		cellTableView.addColumn(cellTableView.getCellTable(), 150, new ClickableTextCell(), "Tên sản phẩm", new GetValue<String>() {
 
 			@Override
 			public String getValue(IBasic iBasic) {
-				if (iBasic instanceof Product) {
-					return ((Product) iBasic).getName();
+				if (iBasic instanceof ProductInfo) {
+					return ((ProductInfo) iBasic).getName();
 				}
 				return "-";
 			}
@@ -77,14 +77,15 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 		}, new FieldUpdater<IBasic, String>() {
 			@Override
 			public void update(final int index, IBasic object, String value) {
+				HustTextile.CLIENT_FACTORY.getEventBus().fireEvent(new ActionEvent(object, Action.VIEW));
 			}
 	    });
 		cellTableView.addColumn(cellTableView.getCellTable(), 150, new TextCell(), "Mô tả", new GetValue<String>() {
 
 			@Override
 			public String getValue(IBasic iBasic) {
-				if (iBasic instanceof Product) {
-					return ((Product) iBasic).getDescription();
+				if (iBasic instanceof ProductInfo) {
+					return ((ProductInfo) iBasic).getDescription();
 				}
 				return "-";
 			}
@@ -154,8 +155,8 @@ public class ProductsViewImpl extends BasicViewImpl implements ProductsView {
 
 			@Override
 			public String getValue(IBasic iBasic) {
-				if (iBasic instanceof Product) {
-					return ClientUtils.formatDate(((Product) iBasic).getLastUpdate(), null);
+				if (iBasic instanceof ProductInfo) {
+					return ClientUtils.formatDate(((ProductInfo) iBasic).getLastUpdate(), null);
 				}
 				return "-";
 			}

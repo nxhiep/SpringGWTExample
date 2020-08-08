@@ -6,7 +6,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.hust.textile.shared.model.ActionInfo;
 import com.hust.textile.shared.model.ActivityInfo;
 import com.hust.textile.shared.model.IBasic;
-import com.hust.textile.shared.model.Product;
+import com.hust.textile.shared.model.ProductInfo;
 import com.hust.textile.shared.model.UserInfo;
 
 /**
@@ -26,9 +26,11 @@ public interface DataServiceAsync {
 
 	void deletes(List<IBasic> iBasics, AsyncCallback<Void> callback);
 
-	void getAllProducts(AsyncCallback<List<Product>> callback);
+	void getAllProducts(AsyncCallback<List<ProductInfo>> callback);
 
 	void getActivities(AsyncCallback<List<ActivityInfo>> callback);
 
 	void getActions(AsyncCallback<List<ActionInfo>> callback);
+
+	void getProductInfo(Long productId, AsyncCallback<ProductInfo> callback);
 }

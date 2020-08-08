@@ -1,8 +1,5 @@
 package com.hust.textile.shared.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
@@ -10,18 +7,19 @@ import com.googlecode.objectify.annotation.Index;
 import com.hust.textile.shared.Config;
 
 @Entity
-public class Product implements IBasic {
+public class DeviceInfo implements IBasic {
 	@Ignore private static final long serialVersionUID = 1L;
 	@Id private Long id;
-	private String name = Config.TEXT_EMPTY;
+	@Index private String code = Config.TEXT_EMPTY;
 	private String description = Config.TEXT_EMPTY;
-	private String note = Config.TEXT_EMPTY;
-	private List<String> imageUrls = new ArrayList<String>();
-	@Index private String userId = Config.TEXT_EMPTY;
+	private String name = Config.TEXT_EMPTY;
+	private double time = Config.LONG_NULL;
+	@Index private Long parentId = Config.LONG_NULL;
+	@Index private String userId = Config.TEXT_EMPTY;;
 	@Index private Long lastUpdate;
 	@Index private Long createDate;
 	
-	public Product() {
+	public DeviceInfo() {
 	}
 
 	public Long getId() {
@@ -30,14 +28,6 @@ public class Product implements IBasic {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getLastUpdate() {
-		return lastUpdate;
-	}
-
-	public void setLastUpdate(Long lastUpdate) {
-		this.lastUpdate = lastUpdate;
 	}
 
 	@Override
@@ -49,12 +39,17 @@ public class Product implements IBasic {
 		return createDate;
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public void setLastUpdate(Long lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getDescription() {
@@ -65,27 +60,39 @@ public class Product implements IBasic {
 		this.description = description;
 	}
 
-	public List<String> getImageUrls() {
-		return imageUrls;
+	public String getName() {
+		return name;
 	}
 
-	public void setImageUrls(List<String> imageUrls) {
-		this.imageUrls = imageUrls;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public String getNote() {
-		return note;
+
+	public double getTime() {
+		return time;
 	}
-	
-	public void setNote(String note) {
-		this.note = note;
+
+	public void setTime(double time) {
+		this.time = time;
 	}
-	
+
+	public Long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public Long getLastUpdate() {
+		return lastUpdate;
 	}
 }
